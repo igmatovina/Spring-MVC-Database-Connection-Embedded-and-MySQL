@@ -20,13 +20,13 @@ public class User {
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
 	
-	@Column(name="username", unique=true, nullable=false)
+	@Column(name="username", nullable=false)
 	private String username;
 	
-	@Column(name="password", unique=true, nullable=false)
+	@Column(name="password", nullable=false)
 	private String password;
 	
-	@Column(name="enabled", unique=true, nullable=false)
+	@Column(name="enabled", nullable=false)
 	private boolean enabled;
 	
 	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)

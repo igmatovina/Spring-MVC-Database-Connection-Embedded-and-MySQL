@@ -21,16 +21,16 @@ public class BlogPost {
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
 	
-	@Column(name="title", unique=true, nullable=false)
+	@Column(name="title", nullable=false)
 	private String title;
 	
-	@Column(name="content", unique=true, nullable=false)
+	@Column(name="content", nullable=false)
 	private String content;
 	
-	@Column(name="publishDate", unique=true, nullable=true)
+	@Column(name="publishDate", nullable=true)
 	private Date publishDate;
 	
-	@Column(name="draft", unique=true, nullable=false)
+	@Column(name="draft", nullable=false)
 	private boolean draft;
 	
 	@ManyToOne

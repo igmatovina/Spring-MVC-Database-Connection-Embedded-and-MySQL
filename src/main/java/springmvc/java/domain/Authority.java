@@ -16,10 +16,10 @@ public class Authority {
 	@Column(name="id", unique=true, nullable=false)
 	private Long id;
 	
-	@Column(name="username", unique=true, nullable=false)
+	@Column(name="username", nullable=false)
 	private String username;
 	
-	@Column(name="authority", unique=true, nullable=false)
+	@Column(name="authority", nullable=false)
 	private String authority;
 	
 	public Long getId() {
