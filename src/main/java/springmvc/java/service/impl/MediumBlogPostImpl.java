@@ -51,7 +51,7 @@ public class MediumBlogPostImpl implements BlogPostService {
 
 
 	@Override
-	public Optional<BlogPost> findBlogPostById(long id) {
+	public BlogPost findBlogPostById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

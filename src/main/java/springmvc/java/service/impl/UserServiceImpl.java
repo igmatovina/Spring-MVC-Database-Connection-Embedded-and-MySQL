@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User findUserWithBlogPostsByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return userDao.findUserByUsername(username);
 	}
 
 }

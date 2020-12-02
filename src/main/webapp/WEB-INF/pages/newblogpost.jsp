@@ -47,6 +47,8 @@
         <h1>New blog post</h1>
         <c:if test="${not empty message }">
         	${message} <br/>
+      	<a href="${pageContext.request.contextPath}/blogposts.html">Go to blog post</a>
+        	
         </c:if>
         <form action="${pageContext.request.contextPath}/saveBlogPost" method="post">
         	<div class="form-group">
@@ -61,11 +63,10 @@
     			<input type="checkbox" name="draft" class="form-check-input" id="draft">
     			<label class="form-check-label" for="exampleCheck1">Draft</label>
   			</div>
-        		<button type="submit" class="btn btn-primary">save</button>
+        		<input type="submit" value ="Save"></input>
         	</form>
 
-  		<a href="${pageContext.request.contextPath}">Back</a>
-        
+  		<a href="${pageContext.request.contextPath}">Back</a>        
       </div>
 
 

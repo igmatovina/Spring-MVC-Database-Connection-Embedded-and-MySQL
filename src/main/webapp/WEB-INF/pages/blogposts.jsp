@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>welcome</title>
+<title>Blog Post</title>
  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet">
  <link href="${pageContext.request.contextPath}/resources/css/starter-template.css" rel="stylesheet">
  <script src="${pageContext.request.contextPath}/resources/js/jquery-3.5.1.min.js" type="text/javascript"></script>
@@ -42,22 +44,49 @@
 
   <!-- Page Content -->
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.5.3</li>
-          <li>jQuery 3.5.1</li>
-         <li><a href="${pageContext.request.contextPath}/displayUsers">Display users with embedded database</a></li>
-         <li><a href="${pageContext.request.contextPath}/displayUsersMySQL">Display users with MySQL database</a></li>
-         <li><a href="${pageContext.request.contextPath}/newblogpost.html">new blog post</a></li>
-         <li><a href="${pageContext.request.contextPath}/blogposts"> blog posts</a></li>
-        
-        </ul>
+        <h1>blog post</h1>
+        <c:if test="${empty blogposts}">
+        	No Blog post is found <br/>
+        </c:if>
+      <br/>
+      <form action="${pageContext.request.contextPath}/searchByTitle" method="post">
+      <table>
+   		<tr><td>Title</td><td><input  name="title" type="text"/></td></tr>
+   		<tr><td colspan="2"><input  type="submit" value="Search"/></td></tr>
+   		
+      </table>
+      </form>
+ 
+        <c:if test="${not empty blogposts}">
+        	<table style="width:650px" class="table table-striped">
+	        	<c:forEach var="blogpost" items="${blogposts}">
+		        	<tr>
+			        	<td>Blog post id</td>
+			        	<td><c:out value="${blogpost.id}"></c:out></td>
+		        	</tr>
+		        	<tr>
+			        	<td>title</td>
+			        	<td><c:out value="${blogpost.title}"></c:out></td>
+		        	</tr>
+		        	<tr>
+			        	<td>Content</td>
+			        	<td><div style = "white-space: pre"><c:out value="${blogpost.content}"></c:out></div></td>
+		        	</tr>
+		        	<tr>
+			        	<td>Draft</td>
+			        	<td><c:out value="${blogpost.draft}"></c:out></td>
+		        	</tr>
+		        	<tr><td colspan="2"></td></tr>
+		        	<tr><td colspan="2"></td></tr>
+        		</c:forEach>
+        	 </table>
+        </c:if>
+        <a href="${pageContext.request.contextPath}/draftblogposts">Find draft blog posts</a>
+ 
+  		<a href="${pageContext.request.contextPath}">Back</a><br>
+        <a href="${pageContext.request.contextPath}/newblogpost.html">Enter a new blog post</a>
+      
       </div>
-    </div>
-  </div>
 
 
   </body>

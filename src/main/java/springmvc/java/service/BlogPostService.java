@@ -13,5 +13,5 @@ public interface BlogPostService {
 	void deletePost(BlogPost blogPost);
 	List<BlogPost> listAllBlogPostsByUserAndDraftStatus(User user, boolean draft);
 	List<BlogPost> listAllBlogPostsByUserAndTitleLike(User user, String title);
-	Optional<BlogPost> findBlogPostById(long id);
+	BlogPost findBlogPostById(long id);
 }
